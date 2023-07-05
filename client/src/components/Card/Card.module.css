@@ -1,0 +1,7 @@
+.cardPokemon{
+    border: 5px solid black;
+    max-width: 200px;
+}
+.cardPokemon img{
+    width: 100%;
+}

@@ -1,11 +1,12 @@
 const axios = require("axios");
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 
 const getPokemonForId = async (req, res) => {
   try {
     const { idPokemon } = req.params;
     let pokemon;
-    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    const uuidRegex =
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
     const isUUID = uuidRegex.test(idPokemon); //me fijo si es un id UUID como que tienen los pokemon creados
     try {
       const { data } = await axios(
@@ -24,7 +25,9 @@ const getPokemonForId = async (req, res) => {
           speed: data.stats[5].base_stat,
           height: data.height,
           weight: data.weight,
-          types: data.types,
+          types: data.types.map((type) => {
+            return { name: type.type.name };
+          }),
         };
       }
     } catch (error) {
@@ -34,9 +37,17 @@ const getPokemonForId = async (req, res) => {
 
     if (!pokemon && isUUID) {
       //En caso de que no haya nada en la variable es que no se encontro el pokemon en la api y
-      pokemon = await Pokemon.findOne({ // procedo a buscarlo en mi base de datos
+      pokemon = await Pokemon.findOne({
+        // procedo a buscarlo en mi base de datos
         where: {
           id: idPokemon,
+        },
+        include: {
+          model: Type,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
         },
       });
     }
