@@ -1,11 +1,11 @@
-import { useDispatch } from "react-redux";
-import { ordeForId, ordeForName, filterTypes, resetFilters, filterCreation } from "../../Redux/actions";
-import { fetchAllTypes } from "./utils/fetchAllTypes";
+import { useDispatch, useSelector } from "react-redux";
+import { ordeForId, ordeForName, filterTypes, resetFilters, filterCreation, getAllTypes } from "../../Redux/actions";
 import { useEffect, useState } from "react";
+import style from "./Filter.module.css"
 
-const Filters = ({resetPageFilter, allPokemons}) => {
+const Filters = ({resetPageFilter}) => {
   const dispatch = useDispatch(); // HOOK PARA DISPATCH DEL ESTADO GLOBAL
-  const [types, setTypes] = useState(); // ESTADO LOCAL PARA TRAER LOS TYPES DE LA BD
+  const types = useSelector(state => state.allTypes)
   const [sortValue, setSortValue] = useState("Original"); //ESTADO DEL SELECT DEL FILTRADO ALFABETICO
   const [attackValue, setAttackValue] = useState("Original");//ESTADO DEL SELECT DEL FILTRADO ATTACK
   const [typeValue, setTypeValue] = useState("Original"); //ESTADO DEL SELECT DE TYPE
@@ -13,8 +13,8 @@ const Filters = ({resetPageFilter, allPokemons}) => {
   
 
   useEffect(() => {
-    fetchAllTypes(setTypes); // FUNCION QUE TRAE Y GUARDA EN EL ESTADO LOCAL LOS TYPES
-  }, []);
+  dispatch(getAllTypes());
+  }, [types]);
 
 
   const handleSort = (event) => { //ORDENA POR ATTACK O POR NAME
@@ -22,16 +22,21 @@ const Filters = ({resetPageFilter, allPokemons}) => {
       event.target.value === "MoreAttack" ||
       event.target.value === "LessAttack"
     ) {
+      setSortValue("Original");
       setAttackValue(event.target.value) 
       dispatch(ordeForId(event.target.value));
       
     } else {
+      setAttackValue("Original");
      setSortValue(event.target.value)
       dispatch(ordeForName(event.target.value));
     }
   };
 
   const handleTypes = (event) => { //FILTRA POR TIPOS DE POKEMON
+    setSortValue("Original");
+    setAttackValue("Original");
+    setTypeValue("Original");
     resetPageFilter()
    setTypeValue(event.target.value)
    dispatch(filterTypes(event.target.value))
@@ -52,8 +57,20 @@ const Filters = ({resetPageFilter, allPokemons}) => {
    };
  
   return (
-    <div>
+    <div className={style.containerFilter}>
         <button onClick={handleReset}>Reset Filters</button>
+        <select onChange={handleFilterCreation} value={creationValue}>
+      <option value="Original" disabled>All | Created | API</option>
+      <option value="All">All</option>
+        <option value="NoCreated">API</option>
+        <option value="Created">Created</option>
+      </select>
+      <select onChange={handleTypes} value={typeValue}>
+      <option value="Original" disabled>Ordernar por tipo</option>
+        {types.map((type) => (
+          <option key={type.id}value={type.name}>{type.name}</option>
+        ))}
+      </select>
       <select onChange={handleSort} value={sortValue}>
       <option value="Original" disabled>Ordernar alfabeticamente</option>
         <option value="AlfabeticoAZ">A - Z</option>
@@ -64,18 +81,8 @@ const Filters = ({resetPageFilter, allPokemons}) => {
         <option value="MoreAttack">- Attack | + Attack</option>
         <option value="LessAttack">+ Attack | - Attack</option>
       </select>
-      <select onChange={handleTypes} value={typeValue}>
-      <option value="Original" disabled>Ordernar por tipo</option>
-        {types?.map((type) => (
-          <option key={type.id}value={type.name}>{type.name}</option>
-        ))}
-      </select>
-      <select onChange={handleFilterCreation} value={creationValue}>
-      <option value="Original" disabled>All | Created | API</option>
-      <option value="All">All</option>
-        <option value="NoCreated">API</option>
-        <option value="Created">Created</option>
-      </select>
+     
+      
     </div>
   );
 };

@@ -16,12 +16,18 @@ const functionsFiltersDeleted = ()=>{
 }
   return (
     <div key={id} className={style.cardPokemon}>
+      {/* IMAGEN CARD */}
+      <div>
       {isNaN(Number(id)) && <button onClick={functionsFiltersDeleted}>X</button>}
       {image ? (
-        <img src={image} alt={`Image of ${name}`} />
+        <img className={style.imageCardPokemon}src={image} alt={`Image of ${name}`} />
       ) : (
-        <img src={defaultImage} />
+        <img className={style.imageCardPokemon} src={defaultImage} />
       )}
+
+      </div>
+      {/* DETAILS CARD*/}
+      <div className={style.containerDetailCard}>
       <Link to={`/detail/${id}`}>
         <h3>{name}</h3>
       </Link>
@@ -30,6 +36,7 @@ const functionsFiltersDeleted = ()=>{
       {types.map((type) => (
         <p key={type.name}>{type.name}</p>
       ))}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,16 @@
 .cardPokemon{
     border: 5px solid black;
     max-width: 200px;
+    min-width: 200px;
+    max-height: 350px;
+    min-height: 350px;
 }
-.cardPokemon img{
-    width: 100%;
+
+.imageCardPokemon{
+    width: 150px;
+}
+.containerDetailCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

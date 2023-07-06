@@ -6,7 +6,7 @@ const FormCreator = () => {
         <label>Name</label>
         <input type="text" />
         <label>Life</label>
-        <input type="range" min="0" max="100" />
+        <input type="range" min="0" max="5" />
         <label>Attack</label>
         <input type="text" />
       </form>

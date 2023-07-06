@@ -1,4 +1,6 @@
 .containerNavBar{
     display: flex;
     gap: 20px;
+    background-color: bisque;
+    height: 10vh;
 }

@@ -6,10 +6,12 @@ import {
   ORDER_NAME,
   RESET,
   FILTER_DELETED,
+  ALL_TYPES,
 } from "./action-type";
 
 const initialState = {
   allPokemons: [],
+  allTypes: [],
   pokemonsAux: [],
   pokemonsCreated: [],
 };
@@ -23,22 +25,33 @@ const reducer = (state = initialState, action) => {
         allPokemons: action.payload,
         pokemonsAux: action.payload,
       };
+    //TRAIGO A TODOS LOS TYPES
+    case ALL_TYPES:
+      let pokemonesmap = state.pokemonsAux
+        .map((pok) => pok.types.map((type) => type.name))
+        .flat();
 
+      return {
+        ...state,
+        allTypes: action.payload.filter((type) =>
+          pokemonesmap.some((poktype) => poktype === type.name)
+        ),
+      };
     //ORDENO POR ID
     case ORDER_ID:
-      let orderId;
+      let orderAttack;
       if (action.payload === "MoreAttack") {
-        orderId = [...state.allPokemons].sort((a, b) =>
+        orderAttack = [...state.allPokemons].sort((a, b) =>
           a.attack > b.attack ? 1 : -1
         );
       } else {
-        orderId = [...state.allPokemons].sort((a, b) =>
+        orderAttack = [...state.allPokemons].sort((a, b) =>
           b.attack > a.attack ? 1 : -1
         );
       }
       return {
         ...state,
-        allPokemons: orderId,
+        allPokemons: orderAttack,
       };
     //ORDENO POR NAME
     case ORDER_NAME:
@@ -65,16 +78,14 @@ const reducer = (state = initialState, action) => {
             pokemon.types.some((type) => type.name === action.payload)
           ),
         };
-      }else{
+      } else {
         return {
           ...state,
           allPokemons: [...state.pokemonsAux].filter((pokemon) =>
             pokemon.types.some((type) => type.name === action.payload)
           ),
         };
-      } 
-        
-
+      }
     //FILTRO POR CREADO U ORIGINAL
     case FILTER_CREATION:
       let filtrado;
@@ -82,12 +93,12 @@ const reducer = (state = initialState, action) => {
         filtrado = state.pokemonsAux.filter((pokemon) =>
           isNaN(Number(pokemon.id))
         );
-      } else if(action.payload === "NoCreated") {
+      } else if (action.payload === "NoCreated") {
         filtrado = state.pokemonsAux.filter(
           (pokemon) => !isNaN(Number(pokemon.id))
-        )
-      }else{
-        filtrado = state.pokemonsAux
+        );
+      } else {
+        filtrado = state.pokemonsAux;
       }
       return {
         ...state,

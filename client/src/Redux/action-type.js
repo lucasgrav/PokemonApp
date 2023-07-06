@@ -5,3 +5,4 @@ export const ORDER_ID = "ORDER_ID";
 export const ORDER_NAME = "ORDER_NAME";
 export const RESET = "RESET_FILTERS";
 export const FILTER_DELETED = "FILTER_DELETED";
+export const ALL_TYPES = "ALL_TYPES";
