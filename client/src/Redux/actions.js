@@ -6,7 +6,8 @@ import {
   ORDER_NAME,
   RESET,
   FILTER_DELETED,
-  ALL_TYPES,
+  ALL_TYPES_FILTER,
+  ALL_TYPES
 } from "./action-type";
 import axios from "axios";
 
@@ -21,6 +22,18 @@ export const getAllPokemons = () => {
   };
 };
 
+export const getAllTypesFilter = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(
+        "http://localhost:3001/pokemons/types"
+      );
+      dispatch({ type: ALL_TYPES_FILTER, payload: data });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
 export const getAllTypes = () => {
   return async (dispatch) => {
     try {
@@ -33,7 +46,6 @@ export const getAllTypes = () => {
     }
   };
 };
-
 export const filterTypes = (type) => {
   return { type: FILTER_TYPES, payload: type };
 };

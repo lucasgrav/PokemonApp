@@ -6,14 +6,16 @@ import {
   ORDER_NAME,
   RESET,
   FILTER_DELETED,
-  ALL_TYPES,
+  ALL_TYPES_FILTER,
+  ALL_TYPES
 } from "./action-type";
 
 const initialState = {
   allPokemons: [],
-  allTypes: [],
+  allTypesFilter: [],
   pokemonsAux: [],
   pokemonsCreated: [],
+  allTypes: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,18 +27,24 @@ const reducer = (state = initialState, action) => {
         allPokemons: action.payload,
         pokemonsAux: action.payload,
       };
-    //TRAIGO A TODOS LOS TYPES
-    case ALL_TYPES:
+    //TRAIGO A TODOS LOS TYPES Y LOS FILTRO POR LOS QUE EXISTEN O TIENEN LOS POKEMON
+    case ALL_TYPES_FILTER:
       let pokemonesmap = state.pokemonsAux
         .map((pok) => pok.types.map((type) => type.name))
         .flat();
 
       return {
         ...state,
-        allTypes: action.payload.filter((type) =>
+        allTypesFilter: action.payload.filter((type) =>
           pokemonesmap.some((poktype) => poktype === type.name)
         ),
       };
+      //TRAIGO A TODOS LOS TYPES
+      case ALL_TYPES:
+        return {
+          ...state,
+          allTypes: action.payload
+        };
     //ORDENO POR ID
     case ORDER_ID:
       let orderAttack;
@@ -107,17 +115,22 @@ const reducer = (state = initialState, action) => {
       };
     //FILTRO LOS ELIMINADOS
     case FILTER_DELETED:
+      let filtradoDeletedDB = [...state.allPokemons].filter(
+        (pokemon) => pokemon.id.toString() !== action.payload
+      )
+      let filtradoDeleted = [...state.pokemonsAux].filter(
+        (pokemon) => pokemon.id.toString() !== action.payload
+      )
       return {
         ...state,
-        allPokemons: [...state.allPokemons].filter(
-          (pokemon) => pokemon.id.toString() !== action.payload
-        ),
+        allPokemons:  filtradoDeletedDB,
+        pokemonsAux: filtradoDeleted
       };
     //RESETEO LOS FILTROS
     case RESET:
       return {
         ...state,
-        allPokemons: state.pokemonsAux,
+        allPokemons: state.pokemonsAux, 
       };
     default:
       return { ...state };

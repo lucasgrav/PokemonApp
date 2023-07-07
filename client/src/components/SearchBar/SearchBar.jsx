@@ -13,8 +13,7 @@ const SearchBar = ({setPokemonsSearch})=>{
     return(
         <div>
         <input type="search" onChange={handleChange} value={name.toLowerCase()} placeholder="Search Pokemon"/>
-        <button onClick={() => onSearch(name, setPokemonsSearch, setErrorSearch)}>Search</button>
-        
+        <button onClick={() => onSearch(name, setPokemonsSearch, setErrorSearch)}>Search</button>   
       </div>
     )
 };

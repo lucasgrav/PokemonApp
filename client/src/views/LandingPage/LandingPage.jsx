@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import style from "./LandingPage.module.css"
 const LandingPage = () => {
   return (
-    <div>
-      <h1>LandingPage</h1>
+    <div className={style.containerLandingPage}>
+      
       <Link to="/home">
-        <h2>To Home</h2>
+       <button className={style.buttonLandingPage}>Go to Pokedex</button>
       </Link>
     </div>
   );
