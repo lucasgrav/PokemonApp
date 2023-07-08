@@ -2,7 +2,7 @@ import {
   ALL_POKEMONS,
   FILTER_CREATION,
   FILTER_TYPES,
-  ORDER_ID,
+  ORDER_ATTACK,
   ORDER_NAME,
   RESET,
   FILTER_DELETED,
@@ -49,8 +49,8 @@ export const getAllTypes = () => {
 export const filterTypes = (type) => {
   return { type: FILTER_TYPES, payload: type };
 };
-export const ordeForId = (order) => {
-  return { type: ORDER_ID, payload: order };
+export const ordeForAttack= (order) => {
+  return { type: ORDER_ATTACK, payload: order };
 };
 export const ordeForName = (order) => {
   return { type: ORDER_NAME, payload: order };

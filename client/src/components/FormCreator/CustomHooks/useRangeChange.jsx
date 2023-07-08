@@ -98,13 +98,26 @@ if(/^$/.test(event.target.value)) setError({...error, name: "Write the name of t
       });
     }
   };
- 
- const handleSubmit = async (event)=>{
-  event.preventDefault();
-console.log(pokemonCreated)
-  await axios.post('http://localhost:3001/pokemons/post', pokemonCreated)
- }
+  const handleSubmit = async (event) => {
+    let preventSubmit = true;
+    try {
+      const confirmed = window.confirm('Are you sure of create the pokemon?');
+      if (confirmed) {
+        preventSubmit = false;
+        await axios.post('http://localhost:3001/pokemons/post', pokemonCreated);
+        window.alert('¡Pokemon created successfully!');
+      } else {
+        window.alert("Ok, don't forget to create your pokemon");
+      }
+    } catch (error) {
+      console.error(error.message);
+      window.alert('Error in the creation of the pokemon (Server)');
+    }
   
+    if (preventSubmit) {
+      event.preventDefault();
+    }
+  };
   return {name,
     rangeLife,
     rangeAttack,

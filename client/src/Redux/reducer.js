@@ -2,12 +2,12 @@ import {
   ALL_POKEMONS,
   FILTER_CREATION,
   FILTER_TYPES,
-  ORDER_ID,
   ORDER_NAME,
   RESET,
   FILTER_DELETED,
   ALL_TYPES_FILTER,
-  ALL_TYPES
+  ALL_TYPES,
+  ORDER_ATTACK
 } from "./action-type";
 
 const initialState = {
@@ -15,7 +15,9 @@ const initialState = {
   allTypesFilter: [],
   pokemonsAux: [],
   pokemonsCreated: [],
+  pokemonsCreatedBoolean: false,
   allTypes: [],
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -46,7 +48,7 @@ const reducer = (state = initialState, action) => {
           allTypes: action.payload
         };
     //ORDENO POR ID
-    case ORDER_ID:
+    case ORDER_ATTACK:
       let orderAttack;
       if (action.payload === "MoreAttack") {
         orderAttack = [...state.allPokemons].sort((a, b) =>
@@ -79,7 +81,7 @@ const reducer = (state = initialState, action) => {
       };
     //FILTRO POR TIPOS
     case FILTER_TYPES:
-      if (state.pokemonsCreated.length > 0) {
+      if (state.pokemonsCreatedBoolean === true) {
         return {
           ...state,
           allPokemons: [...state.pokemonsCreated].filter((pokemon) =>
@@ -112,6 +114,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         allPokemons: filtrado,
         pokemonsCreated: filtrado,
+        pokemonsCreatedBoolean: true,
       };
     //FILTRO LOS ELIMINADOS
     case FILTER_DELETED:
@@ -131,6 +134,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         allPokemons: state.pokemonsAux, 
+        pokemonsCreated: [],
+        pokemonsCreatedBoolean:false
       };
     default:
       return { ...state };

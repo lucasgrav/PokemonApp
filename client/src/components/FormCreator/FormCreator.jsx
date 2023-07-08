@@ -14,7 +14,6 @@ const FormCreator = () => {
     rangeHeight,
     rangeWeight,
     error,
-    handleImage,
     handleName,
     handleRangeLife,
     handleRangeAttack,
@@ -37,8 +36,6 @@ const FormCreator = () => {
     <div>
       <div>
         <form className={style.formContainer} onSubmit={handleSubmit}>
-          <label>Image</label>
-          <input type="file" onChange={handleImage}/>
           <label>Name </label>
           <input type="text" name="name" onChange={handleName}/>
           <p>{error.name}</p>
