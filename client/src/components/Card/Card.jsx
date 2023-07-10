@@ -1,42 +1,72 @@
 import style from "./Card.module.css";
-import defaultImage from "./assets/defaultImage.jpg";
+import defaultImage from "./assets/defaultImage.png";
 import { Link } from "react-router-dom";
 import { handleDelete } from "./utils/handleDelete";
-import { useDispatch} from "react-redux";
-import{ filterSearchDeleted } from "./utils/filterPokemonSearchDeleted";
+import { useDispatch } from "react-redux";
+import { filterSearchDeleted } from "./utils/filterPokemonSearchDeleted";
 
+const Card = ({
+  image,
+  name,
+  id,
+  types,
+  attack,
+  life,
+  defense,
+  pokemonsSearch,
+  setPokemonsSearch,
+}) => {
+  const dispatch = useDispatch();
 
-const Card = ({ image, name, id, types, attack, pokemonsSearch, setPokemonsSearch }) => {
-const dispatch = useDispatch()
-
-//Esta funcion me sirve para cuando quiera eliminar un pokemon creado cuando lo busco y cuando esta en home
-const functionsFiltersDeleted = ()=>{
-  handleDelete(id,dispatch)
-  filterSearchDeleted(pokemonsSearch,setPokemonsSearch,id) 
-}
+  //Esta funcion me sirve para cuando quiera eliminar un pokemon creado cuando lo busco y cuando esta en home
+  const functionsFiltersDeleted = () => {
+    handleDelete(id, dispatch);
+    filterSearchDeleted(pokemonsSearch, setPokemonsSearch, id);
+  };
   return (
     <div key={id} className={style.cardPokemon}>
       {/* IMAGEN CARD */}
-      <div>
-      {isNaN(Number(id)) && <button onClick={functionsFiltersDeleted}>X</button>}
-      {image ? (
-        <img className={style.imageCardPokemon}src={image} alt={`Image of ${name}`} />
-      ) : (
-        <img className={style.imageCardPokemon} src={defaultImage} />
-      )}
 
-      </div>
+      <Link to={`/detail/${id}`}>
+        <div>
+         
+          {image ? (
+            <img
+              className={style.imageCardPokemon}
+              src={image}
+              alt={`Image of ${name}`}
+            />
+          ) : (
+            <img className={style.imageCardPokemon} src={defaultImage} />
+          )}
+        </div>
+      </Link>
       {/* DETAILS CARD*/}
       <div className={style.containerDetailCard}>
-      <Link to={`/detail/${id}`}>
-        <h3>{name}</h3>
-      </Link>
-      {isNaN(Number(id)) && <h4>Created</h4>}
-      <h4>Attack: {attack}</h4>
-      {types.map((type) => (
-        <p key={type.name}>{type.name}</p>
-      ))}
+        <div className={style.containerCreatedDelete}>
+        {isNaN(Number(id)) && (
+            <button className={style.buttonDeletePokemon} onClick={functionsFiltersDeleted}>X</button>
+          )} <h2 className={style.nameCardPokemon}>{name.toUpperCase()}</h2>
+        </div>
+        
+
+        
+
+        <div className={style.typesDetailCard}>
+        {isNaN(Number(id)) && <p>Created</p>}
+          {types.map((type) => (
+            <p key={type.name}>{type.name.replace(/^\w/, (c) => c.toUpperCase())}</p>
+          ))}
+         
+        </div>
+        <p className={style.detailCard}>Life {life}</p>
+        <div className={style.rangeLife} style={{ width: `${life}px` }}></div>
+        <p className={style.detailCard}>Defense {defense}</p>
+        <div className={style.rangeDefense} style={{ width: `${defense}px` }}></div>
+        <p className={style.detailCard}>Attack {attack}</p>
+        <div className={style.rangeAttack} style={{ width: `${attack}px` }}></div>
       </div>
+     
     </div>
   );
 };

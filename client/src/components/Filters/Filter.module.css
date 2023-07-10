@@ -1,6 +1,30 @@
-.containerFilter{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 20px;
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
+.containerFilter {
+  display: flex;
+  gap: 5px;
+}
+
+.containerFilter select {
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Agdasima", sans-serif;
+  font-size: large;
+ padding: 10px;
+}
+
+.containerFilter button {
+  border: none;
+  border-radius: 5px;
+  font-family: "Agdasima", sans-serif;
+  font-size: large;
+  background-color: #D90429;
+  color: #EDF2F4;
+}
+.containerFilter button:hover {
+  cursor: pointer;
+  background-color: #EF233C;
+}
+.containerFilter select:hover {
+  cursor: pointer;
 }

@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
+.containerSearchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.errorNotFound {
+  display: flex;
+  align-items: center;
+  color: #edf2f4;
+  font-family: "Agdasima", sans-serif;
+  position: absolute;
+  font-size: large;
+  gap: 5px;
+}
+
+.errorNotFound p{
+  margin-top: 2px;
+  }
+.errorNotFound button {
+  color: #edf2f4;
+  background: none;
+  border: none;
+  font-family: "Agdasima", sans-serif;
+}
+.errorNotFound button:hover {
+  cursor: pointer;
+}
+.loadingSearch {
+  color: #edf2f4;
+  font-family: "Agdasima", sans-serif;
+  margin: 0;
+  position: absolute;
+  font-size: large;
+  margin-top: 2px;
+}
+
+.btnBack{
+    color: #edf2f4;
+    background: none;
+    border: none;
+    font-family: "Agdasima", sans-serif;
+    font-size: x-large;
+}
+.btnBack:hover{
+    cursor: pointer;
+}
+.containerErrorLoading{
+    width: 145px;
+    display: flex;
+    justify-content: start;
+}
+.containerInputSearch{
+  display: flex;
+  justify-content: end;
+  margin: 0;
+  width: 260px;
+  gap: 10px;
+  
+}
+.containerInputSearch input{
+ border: none;
+ font-family: "Agdasima", sans-serif;
+ font-size: large;
+ padding: 10px;
+ border-radius: 5px;
+}
+.btnSearch{
+  font-family: "Agdasima", sans-serif;
+  background-color: #EF233C;
+  border: none;
+  height: 45px;
+  font-size: large;
+  padding: 10px;
+  border-radius: 5px;
+}
+.btnSearch:hover{
+cursor: pointer;
+color: #D90429;
+}
+.quitError{
+  color: #EF233C;
+}
+.quitError:hover{
+  cursor: pointer;
+ 
+}

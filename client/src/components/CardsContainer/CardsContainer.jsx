@@ -81,33 +81,34 @@ const CardsContainer = () => {
         {/* INPUT DE BUSQUEDA */}
         <SearchBar setPokemonsSearch={setPokemonsSearch} />
 
-        {/* FILTRADOS*/}
-        <Filters resetPageFilter={resetPageFilter} />
+        
 
         {/* BUTTONS DEL PAGINADO */}
-        {pokemonsSearch.length < 1 ? (
-          <div>
-            <button onClick={handlePrev}>Prev</button>
+       
+        {/* FILTRADOS*/}
+        <Filters resetPageFilter={resetPageFilter} />
+      </div>
+      {pokemonsSearch.length < 1 ? (
+          <div className={style.buttonsPagesContainer}>
+            <button onClick={handlePrev}>{"<<"}</button>
             <h3>
               {page} of {totalPages}
             </h3>
-            <button onClick={handleNext}>Next</button>
+            <button onClick={handleNext}>{">>"}</button>
           </div>
         ) : (
-          <div>
-            <button onClick={handlePrev}>Prev</button>
+          <div className={style.buttonsPagesContainer}>
+            <button onClick={handlePrev}>{"<<"}</button>
             <h3>
               {pageSearched} of {totalPagesSearched}
             </h3>
-            <button onClick={handleNext}>Next</button>
+            <button onClick={handleNext}>{">>"}</button>
           </div>
         )}
-      </div>
-
       {/* CARDS RENDERIZANDO */}
       <div className={style.cardsContainer}>
         {loader ? <h2>Loading</h2>:(pokemonsSearch.length < 1
-          ?((pokemonsSliced.length) ? pokemonsSliced.map(({ image, name, id, types, attack }) => (
+          ?((pokemonsSliced.length) ? pokemonsSliced.map(({ image, name, id, types, attack,life,defense }) => (
               <Card
                 image={image}
                 name={name}
@@ -115,21 +116,42 @@ const CardsContainer = () => {
                 types={types}
                 attack={attack}
                 id={id}
+                life={life}
+                defense={defense}
               />
             )): <div><h2>Pokemon not found with this charasteristic!</h2><Link to="/pokemonCreator"><button>Create a pokemon!</button></Link></div>)
-          : pokemonsSlicedSearch.map(({ image, name, id, types, attack }) => (
+          : pokemonsSlicedSearch.map(({ image, name, id, types, attack,life,defense }) => (
               <Card
                 image={image}
                 name={name}
                 key={id}
                 types={types}
                 attack={attack}
+                life={life}
+                defense={defense}
                 id={id}
                 pokemonsSearch={pokemonsSearch}
                 setPokemonsSearch={setPokemonsSearch}
               />
             )))}
       </div>
+      {pokemonsSearch.length < 1 ? (
+          <div className={style.buttonsPagesContainer}>
+            <button onClick={handlePrev}>{"<<"}</button>
+            <h3>
+              {page} of {totalPages}
+            </h3>
+            <button onClick={handleNext}>{">>"}</button>
+          </div>
+        ) : (
+          <div className={style.buttonsPagesContainer}>
+            <button onClick={handlePrev}>{"<<"}</button>
+            <h3>
+              {pageSearched} of {totalPagesSearched}
+            </h3>
+            <button onClick={handleNext}>{">>"}</button>
+          </div>
+        )}
     </div>
   );
 };

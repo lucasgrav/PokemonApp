@@ -1,6 +1,7 @@
 import {onSearch} from "./utils/onSearch"
 import { useState } from "react";
-
+import style from "./SearchBar.module.css"
+import iconSearch from  "../../../assets/images/input-search-bg.png"
 const SearchBar = ({setPokemonsSearch})=>{
 
     const [name, setName] = useState("");
@@ -13,6 +14,7 @@ const SearchBar = ({setPokemonsSearch})=>{
     };
     const returnSearchClick = ()=>{
       setName('')
+      setErrorSearch('')
       setPokemonsSearch([])
       setReturnSearch(false)
     }
@@ -22,12 +24,17 @@ const SearchBar = ({setPokemonsSearch})=>{
     }
 
     return(
-        <div>
-          {returnSearch && <button onClick={returnSearchClick}>Return</button>}
-        <input type="search" onChange={handleChange} value={name.toLowerCase()} placeholder="Search Pokemon"/>
-        <button onClick={() => onSearch(name, setPokemonsSearch, setErrorSearch,setLoader, setReturnSearch)}>Search</button>  
-        {loader && <p>Loading...</p>} {/* Mostrar el mensaje de carga si el estado loader es verdadero */}
-      {errorSearch && <div><button onClick={quitError}>X</button><p>{errorSearch}</p></div>}
+        <div className={style.containerSearchBar}>
+          <div className={style.containerInputSearch}>
+          {returnSearch && <button className={style.btnBack}onClick={returnSearchClick}>←</button>}
+        <input  type="search" onChange={handleChange} value={name.toLowerCase()} placeholder="Search Pokemon"/>
+        <button className={style.btnSearch}onClick={() => onSearch(name, setPokemonsSearch, setErrorSearch,setLoader, setReturnSearch)}><img src={iconSearch}/></button>  
+          </div>
+         <div className={style.containerErrorLoading}>
+         {loader && <p className={style.loadingSearch}>Searching...</p>} {/* Mostrar el mensaje de carga si el estado loader es verdadero */}
+      {errorSearch && <div className={style.errorNotFound}><p  className={style.quitError}onClick={quitError}>X</p><p>{errorSearch}</p></div>}
+         </div>
+      
       </div>
     )
 };

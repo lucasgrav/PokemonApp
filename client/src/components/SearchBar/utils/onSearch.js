@@ -19,9 +19,7 @@ export async function onSearch(
       }
       setPokemonSearch(response.data);
     }
-    if (name.length === 0) {
-      setPokemonSearch([]);
-    }
+   
     setErrorSearch();
   } catch (error) {
     setLoader(false);

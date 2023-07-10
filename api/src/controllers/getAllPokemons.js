@@ -9,7 +9,7 @@ const getAllPokemons = async (req, res) => {
       return {
         id: data.id,
         name: data.name,
-        image: data.sprites.other.home.front_default,
+        image: data.sprites.other["official-artwork"].front_default,
         life: data.stats[0].base_stat,
         attack: data.stats[1].base_stat,
         defense: data.stats[2].base_stat,

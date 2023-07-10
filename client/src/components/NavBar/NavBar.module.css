@@ -1,6 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
 .containerNavBar{
     display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 80px;
     gap: 20px;
-    background-color: bisque;
-    height: 10vh;
+    background-color: #fff;
+    box-shadow: inset -1px -5px 0px #8D99AE ; 
+
+}
+
+
+.containerNavBar div h2{
+   color: #2B2D42 ;
+   margin: 0;
+   font-family: 'Agdasima', sans-serif;
+   font-weight: 700;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+
+.containerNavBar .linkNav{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   border-bottom: solid 5px #EF233C;
+   height: 80px;
+   box-shadow: -2px 1px 20px 1px #9d9696;
+   transition: background-color 0.5s ease;
+ }
+ 
+ .logoPokemon{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-bottom: solid 5px ;
+   border-image: linear-gradient(to right, #ffce06, #0c4fca) 1;
+   height: 80px;
+   box-shadow: inset -2px 1px 20px 1px #9d9696;
+   width: 200px;
+ }
+.CgPokemon{
+   width: 200px;
 }

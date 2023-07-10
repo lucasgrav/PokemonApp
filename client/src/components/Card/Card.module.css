@@ -1,16 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
 .cardPokemon{
-    border: 5px solid black;
     max-width: 200px;
     min-width: 200px;
-    max-height: 350px;
-    min-height: 350px;
 }
 
 .imageCardPokemon{
-    width: 150px;
+    width: 200px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+ 
 }
 .containerDetailCard{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+}
+
+a{
+    text-decoration: none;
+}
+.nameCardPokemon{
+    font-family: 'Agdasima', sans-serif;
+color: #2B2D42;
+margin: 0px;
+}
+.typesDetailCard{
+    display: flex;
+    gap: 10px;
+    font-family: 'Agdasima', sans-serif;
+    font-size: large;
+}
+.typesDetailCard p{
+  margin-top: 0;
+   
+}
+.detailCard{
+    font-family: 'Agdasima', sans-serif;
+    margin: 0px;
+}
+.rangeAttackCard{
+    margin: 0;
+}
+.rangeAttack{
+    background-color: #D90429;
+    height: 5px;
+}
+.rangeLife{
+    background-color: #4dad5b;
+    height: 5px;
+}
+.rangeDefense{
+    background-color: #30a7d7;
+    height: 5px;
+}
+.buttonDeletePokemon{
+    font-family: 'Agdasima', sans-serif;
+  color: #D90429; 
+  font-size: large;
+  font-weight: 700;
+  background: none;
+  border: none;
+}
+.buttonDeletePokemon{
+    cursor: pointer;
+}
+.containerCreatedDelete{
+    display: flex;
+    gap: 3px
 }

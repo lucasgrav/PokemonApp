@@ -79,7 +79,7 @@ const Filters = ({resetPageFilter}) => {
       {/* SELECT FOR TYPE */}
       <select onChange={handleTypes} value={typeValue}>
         <option value="Original" disabled>
-          Ordernar por tipo
+          Types
         </option>
         {types.map((type) => (
           <option key={type.id} value={type.name}>
@@ -90,7 +90,7 @@ const Filters = ({resetPageFilter}) => {
       {/* SELECT FOR A-Z */}
       <select onChange={handleSort} value={sortValue}>
         <option value="Original" disabled>
-        Alphabetically || Attack
+        A-Z || Attack - +
         </option>
         <option value="AlfabeticoAZ">A - Z</option>
         <option value="AlfabeticoZA">Z - A</option>
