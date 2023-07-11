@@ -23,13 +23,12 @@ const Card = ({
     handleDelete(id, dispatch);
     filterSearchDeleted(pokemonsSearch, setPokemonsSearch, id);
   };
+  
   return (
     <div key={id} className={style.cardPokemon}>
       {/* IMAGEN CARD */}
-
       <Link to={`/detail/${id}`}>
         <div>
-         
           {image ? (
             <img
               className={style.imageCardPokemon}
@@ -41,32 +40,47 @@ const Card = ({
           )}
         </div>
       </Link>
+
       {/* DETAILS CARD*/}
       <div className={style.containerDetailCard}>
         <div className={style.containerCreatedDelete}>
-        {isNaN(Number(id)) && (
-            <button className={style.buttonDeletePokemon} onClick={functionsFiltersDeleted}>X</button>
-          )} <h2 className={style.nameCardPokemon}>{name.toUpperCase()}</h2>
+          {isNaN(Number(id)) && (
+            <button
+              className={style.buttonDeletePokemon}
+              onClick={functionsFiltersDeleted}
+            >
+              X
+            </button>
+          )}{" "}
+          <h2 className={style.nameCardPokemon}>{name.toUpperCase()}</h2>
         </div>
-        
-
-        
-
         <div className={style.typesDetailCard}>
-        {isNaN(Number(id)) && <p>Created</p>}
+          {isNaN(Number(id)) && <p>Created</p>}
           {types.map((type) => (
-            <p key={type.name}>{type.name.replace(/^\w/, (c) => c.toUpperCase())}</p>
+            <p key={type.name}>
+              {type.name.replace(/^\w/, (c) => c.toUpperCase())}
+            </p>
           ))}
-         
         </div>
+
+        {/* DETAIL LIFE*/}
         <p className={style.detailCard}>Life {life}</p>
         <div className={style.rangeLife} style={{ width: `${life}px` }}></div>
+
+        {/* DETAIL DEFENSE*/}
         <p className={style.detailCard}>Defense {defense}</p>
-        <div className={style.rangeDefense} style={{ width: `${defense}px` }}></div>
+        <div
+          className={style.rangeDefense}
+          style={{ width: `${defense}px` }}
+        ></div>
+
+        {/* DETAILS ATTACK*/}
         <p className={style.detailCard}>Attack {attack}</p>
-        <div className={style.rangeAttack} style={{ width: `${attack}px` }}></div>
+        <div
+          className={style.rangeAttack}
+          style={{ width: `${attack}px` }}
+        ></div>
       </div>
-     
     </div>
   );
 };

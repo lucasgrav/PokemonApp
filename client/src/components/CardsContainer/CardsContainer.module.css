@@ -54,3 +54,22 @@ color: #2B2D42;
 color: #8D99AE;
 cursor: pointer;
 }
+.loaderGif{
+  width: 400px;
+}
+.containerPokemonNotFound{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Agdasima', sans-serif;
+  font-size: x-large;
+}
+.containerPokemonNotFound button{
+  font-family: 'Agdasima', sans-serif;
+  font-size: x-large;
+  border: none;
+}
+.containerPokemonNotFound button:hover{
+cursor: pointer;
+background-color: #abaeb3;
+}

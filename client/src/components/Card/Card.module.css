@@ -4,6 +4,8 @@
 .cardPokemon{
     max-width: 200px;
     min-width: 200px;
+    min-height: 350px;
+    animation: slideInFromLeft 0.5s ease-in-out;
 }
 
 .imageCardPokemon{
@@ -70,3 +72,11 @@ margin: 0px;
     display: flex;
     gap: 3px
 }
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(17%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

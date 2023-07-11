@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
+.containerDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87vh;
+  gap: 20px;
+
+}
+
+.containerImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerImage img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  
+  border-radius: 5px;
+}
+.detailPokemon {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80vh;
+  width: 60vw;
+  background-image: url("./assets/images/bg-paisaje-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px 0px 20px 0px;
+  border-bottom: 5px solid#30a7d7;
+  border-left: 5px solid #30a7d7;
+}
+
+.characteristicsPokemonStats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: monospace;
+  height: 300px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #30a7d7;
+  color: #f2f2f2;
+}
+.characteristicsPokemonStats p {
+  font-family: "Agdasima", sans-serif;
+  font-size: large;
+}
+.characteristicsPokemonStats h3 {
+  font-family: "Agdasima", sans-serif;
+  font-size: x-large;
+}
+
+.rangeLife {
+  background-color: #4dad5b;
+  height: 5px;
+}
+.rangeDefense {
+  background-color: #474d48;
+  height: 5px;
+}
+.rangeAttack {
+  background-color: #ad584d;
+  height: 5px;
+}
+.rangeSpeed {
+  background-color: #d3e911;
+  height: 5px;
+  margin-bottom: 10px;
+}
+.profesorOak {
+  width: 250px;
+  background-image: url("./assets/images/background-cards.png");
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 0px 20px 0px 20px;
+  border-top: 5px solid#30a7d7;
+  border-right: 5px solid #30a7d7;
+}
+.detailTypes {
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+  gap: 10px;
+}
+.iconoTypes {
+  font-size: x-large;
+  color: #f2f2f2;
+}
+.detailTypes p {
+  margin: 2px;
+  text-align: center;
+
+}
+.detailTypes h3 {
+  margin: 2px;
+  font-family: "Agdasima", sans-serif;
+color: #f2f2f2;;
+}
+.nameDetail{
+    font-family: "Agdasima", sans-serif;
+    font-size: x-large;
+    margin: 0;   
+    margin-bottom: 2px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 0px 10px 0px;
+    border-bottom: 10px solid #30a7d7;
+}
+
+.characteristicsPokemon {
+  background-color: #f2f2f2;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 300px;
+  border-radius: 10px;
+}
+.containerDetailHeight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  font-family: "Agdasima", sans-serif;
+  font-size: large;
+  gap: 20px;
+}
+.containerDetailHeight h3{
+    margin: 0;
+    font-family: "Agdasima", sans-serif;
+}
+.characteristicsPokemonStats h3{
+    margin: 0;
+}
+.pikachuLoaderDetail{
+  width: 400px;
+  border-radius: 100px;
+  border:5px solid #30a7d7;
+}

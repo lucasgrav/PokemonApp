@@ -29,7 +29,8 @@
    justify-content: center;
    border-bottom: solid 5px #EF233C;
    height: 80px;
-   box-shadow: -2px 1px 20px 1px #9d9696;
+   box-shadow: -1px -18px 20px 1px #9d9696;
+
    transition: background-color 0.5s ease;
  }
  
