@@ -13,10 +13,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    image: {
-      type: DataTypes.BLOB,
-     
-    },
+    
     life: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -41,6 +38,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    imageUrl: {
+      type: DataTypes.STRING, 
+     allowNull: false,
+   },
   }
   );
 };

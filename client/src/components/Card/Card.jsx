@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { filterSearchDeleted } from "./utils/filterPokemonSearchDeleted";
 
 const Card = ({
-  image,
+  imageUrl,
   name,
   id,
   types,
@@ -17,6 +17,7 @@ const Card = ({
   setPokemonsSearch,
 }) => {
   const dispatch = useDispatch();
+  
 
   //Esta funcion me sirve para cuando quiera eliminar un pokemon creado cuando lo busco y cuando esta en home
   const functionsFiltersDeleted = () => {
@@ -29,10 +30,10 @@ const Card = ({
       {/* IMAGEN CARD */}
       <Link to={`/detail/${id}`}>
         <div>
-          {image ? (
+          {imageUrl ? (
             <img
               className={style.imageCardPokemon}
-              src={image}
+              src={imageUrl}
               alt={`Image of ${name}`}
             />
           ) : (
@@ -56,8 +57,8 @@ const Card = ({
         </div>
         <div className={style.typesDetailCard}>
           {isNaN(Number(id)) && <p>Created</p>}
-          {types.map((type) => (
-            <p key={type.name}>
+          {types?.map((type) => (
+            <p className={style.typesP}key={type.name}>
               {type.name.replace(/^\w/, (c) => c.toUpperCase())}
             </p>
           ))}

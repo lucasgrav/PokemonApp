@@ -18,7 +18,7 @@ const getPokemonForId = async (req, res) => {
           // se lo asigno a la variable creada al inicio
           id: data.id,
           name: data.name,
-          image: data.sprites.other["official-artwork"].front_default,
+          imageUrl: data.sprites.other["official-artwork"].front_default,
           life: data.stats[0].base_stat,
           attack: data.stats[1].base_stat,
           defense: data.stats[2].base_stat,

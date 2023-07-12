@@ -2,6 +2,7 @@
 .containerFilter {
   display: flex;
   gap: 5px;
+  width: 500px;
 }
 
 .containerFilter select {

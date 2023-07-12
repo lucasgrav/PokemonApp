@@ -1,13 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
 .formContainer {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 91.4vh;
+ 
+}
+.form {
+  display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 30vw;
   margin: 10px;
-  margin: 20px;
+  background-color: #f2f2f2;
+  padding: 40px;
+  border-radius: 20px;
 }
 .containerTypesCheck {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  flex-wrap: wrap;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.containerCardForm {
+  display: flex;
   justify-content: center;
+  align-items: center;
+background-image: url("../../../assets/images/container_bg.png");
+background-color: #fff;
+  width: 300px;
+  height: 400px;
+ border-radius: 20px;
+}
+.inputName {
+  width: 150px;
+}
+.containerRanges {
+  font-family: 'Agdasima', sans-serif;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.containerRanges input {
+  width: 50%;
+}
+.containerRanges .labelStats{
+  margin: 0;
+  font-size: xx-large;
+  margin-bottom: 2px;
+}
+
+.containerNameImage {
+  font-family: 'Agdasima', sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.containerNameImage label{
+  font-size: xx-large;
+}
+.containerNameImage div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerNameImage p{
+  color:rgb(241, 33, 33);
+ margin: 5px;
+ height: 25px;
+ font-weight: 700;
+ }
+ 
+.containerTypes {
+  font-family: 'Agdasima', sans-serif;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerTypes button {
+  font-family: 'Agdasima', sans-serif;
+  font-size: x-large;
+}
+.containerTypes button:hover {
+  cursor: pointer;
+}
+.containerTypes .labelTypes{
+  font-size: x-large;
+}
+.containerTypes p{
+ color:rgb(241, 33, 33);
+ margin: 5px;
+ height: 25px;
+ font-weight: 700;
+}
+.containerName{
+  display: flex;
+  flex-direction: column;
+}
+.containerImage{
+  display: flex;
+  flex-direction: column;
 }

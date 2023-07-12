@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 const useRangeChange = () => {
   const [name, setName] = useState('')
+  const [imagePokemon, setImagePokemon] = useState('')
   const [rangeLife, setRangeLife] = useState(50);
   const [rangeAttack, setRangeAttack] = useState(50);
   const [rangeDefense, setRangeDefense] = useState(50);
@@ -9,10 +10,14 @@ const useRangeChange = () => {
   const [rangeHeight, setRangeHeight] = useState(50);
   const [rangeWeight, setRangeWeight] = useState(50);
   const [checkedInput, setCheckedInput] = useState(0);
+
+
   const [error, setError] = useState({
-    name:'',
-   types:''
+    name:'Write the name of the pokemon',
+   types:'Select types of the pokemon',
+   image: 'Post a URL image'
   })
+
   const [pokemonCreated, setPokemonCreated]= useState({
     name:'',
     life: 50,
@@ -21,26 +26,28 @@ const useRangeChange = () => {
     speed: 50,
     height: 50,
     weight: 50,
-    image: null,
+    imageUrl: '',
     types: [],
   })
 
 const handleError =(event)=>{
 if(event.target.name === "name"){
-if(!/^.{4,}$/.test(event.target.value))  setError({...error, name: "❌ Minimum 4 characters"}); // VERIFICA QUE SEA MAYOR A 4 CARACTERES
+if(!/^.{4,}$/.test(event.target.value))  setError({...error, name: "X Minimum 4 characters"}); // VERIFICA QUE SEA MAYOR A 4 CARACTERES
 if(/^.{4,12}$/.test(event.target.value)) setError({...error, name: "✅"}); // SI VA TODO BIEN
-if(!/^.{0,12}$/.test(event.target.value)) setError({...error, name: "❌ Maximum 12 characters"}); // CUANDO SUPERA EL MAXIMO DE 12 CARACTERES
-if(!/^[^0-9]*$/.test(event.target.value))   setError({...error, name: "❌ Must not contain numbers"}); // QUE NO CONTENGA NUMEROS 
-if(/^$/.test(event.target.value)) setError({...error, name: "Write the name of the pokemon"}); // PARA QUE ESCRIBA EN EL INPUT
+if(!/^.{0,12}$/.test(event.target.value)) setError({...error, name: "X Maximum 12 characters"}); // CUANDO SUPERA EL MAXIMO DE 12 CARACTERES
+if(!/^[A-Za-z]+$/.test(event.target.value)) setError({...error, name: "X Only letters (no special characters or numbers)"});
+if(/^$/.test(event.target.value)) setError({...error, name: "X Write the name of the pokemon"}); // PARA QUE ESCRIBA EN EL INPUT
+}else if(event.target.name === "image"){
+ if(!/^(http|https):\/\/([^\s$.?#].[^\s]*)*[^.,?!:;\s]$/.test(event.target.value)) setError({...error, image: "X Invalid URL"})
+ else setError({...error, image: "✅"})
+}
 }
 
-  }
-
-  const handleImage = (event) => {
-    const file = event.target.files[0];
-  
-
-  };
+const handleImage = (event)=>{
+   setImagePokemon(event.target.value);
+    setPokemonCreated({...pokemonCreated, imageUrl: event.target.value})
+    handleError(event)
+}
 //CONTROLA EL INPUT NAME Y MANEJA LOS ERRORES Y VA SETEANDO EL NOMBRE AL POKEMON
   const handleName = (event) => {
     setName(event.target.value);
@@ -77,13 +84,20 @@ if(/^$/.test(event.target.value)) setError({...error, name: "Write the name of t
     setPokemonCreated({...pokemonCreated, weight: Number(event.target.value)})
   };
   // SETEA LOS TYPES AL POKEMON Y MANEJA LOS ERRORES 
+  const [nameType, setNameType] = useState([])
+
   const handleChecked = (event) => {
-    const { checked, id } = event.target; // AGARRO EL ID Y SI ESTA CHECKED
+    const { checked, id, name } = event.target; // AGARRO EL ID Y SI ESTA CHECKED
+    
+    
+    if(nameType.length !== 3){
+      setNameType([...nameType,{name: name}])
+    }
     const checkedCount = checked ? checkedInput + 1 : checkedInput - 1; 
     if (checkedCount === 0 ) {
-      setError({ ...error, types: '❌ Minimun 1 type' });
+      setError({ ...error, types: 'X Minimun 1 type' });
     }else if (checkedCount > 3 ) {
-      setError({ ...error, types: '❌ Max 3 types' });
+      setError({ ...error, types: 'X Max 3 types' });
     } else {
       setError({ ...error, types: "✅" });
     }
@@ -96,27 +110,35 @@ if(/^$/.test(event.target.value)) setError({...error, name: "Write the name of t
         ...pokemonCreated,
         types: pokemonCreated.types.filter((type) => type !== id),
       });
+      setNameType(nameType.filter(type => type.name !== name))
     }
   };
+
   const handleSubmit = async (event) => {
-    let preventSubmit = true;
+   
     try {
-      const confirmed = window.confirm('Are you sure of create the pokemon?');
-      if (confirmed) {
-        preventSubmit = false;
+        setName('')
+        setRangeLife(50)
+        setRangeAttack(50)
+        setRangeDefense(50)
+        setRangeSpeed(50)
+        setRangeHeight(50)
+        setRangeWeight(50)
+        setCheckedInput(0)
+        setImagePokemon('')
+        setError({
+          name:'Write the name of the pokemon',
+         types:'Select types of the pokemon'
+        })
+        setNameType([])
         await axios.post('http://localhost:3001/pokemons/post', pokemonCreated);
         window.alert('¡Pokemon created successfully!');
-      } else {
-        window.alert("Ok, don't forget to create your pokemon");
-      }
     } catch (error) {
       console.error(error.message);
       window.alert('Error in the creation of the pokemon (Server)');
     }
   
-    if (preventSubmit) {
-      event.preventDefault();
-    }
+   
   };
   return {name,
     rangeLife,
@@ -126,7 +148,10 @@ if(/^$/.test(event.target.value)) setError({...error, name: "Write the name of t
     rangeHeight,
     rangeWeight,
     error,
-   handleImage,
+    handleImage,
+    imagePokemon,
+   nameType,
+   checkedInput,
     handleChecked,
     handleName,
     handleRangeLife,

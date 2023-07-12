@@ -77,7 +77,8 @@ const usePagination = () => {
     totalPages,
     pageSearched,
     totalPagesSearched,
-    pageUlt
+    pageUlt,
+    allPokemons
   };
 };
 export default usePagination;

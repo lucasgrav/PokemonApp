@@ -5,7 +5,7 @@ import {
     resetFilters,
     filterCreation,
   } from '../../../Redux/actions';
-  import { useState } from 'react';
+  import { useMemo, useState } from 'react';
   import { useDispatch } from 'react-redux';
 
 const useFilter = ()=>{
@@ -13,6 +13,7 @@ const useFilter = ()=>{
     const [sortValue, setSortValue] = useState("Original"); //ESTADO DEL SELECT DEL FILTRADO ALFABETICO
     const [typeValue, setTypeValue] = useState("Original"); //ESTADO DEL SELECT DE TYPE
     const [typeCreated, setTypeCreated] = useState("Original"); //ESTADO DEL SELECT DE TYPE
+    
     const handleSort = (event) => {
         //ORDENA POR ATTACK O POR NAME
         if (
@@ -21,6 +22,7 @@ const useFilter = ()=>{
         ) {
          
           setSortValue(event.target.value);
+
           dispatch(ordeForAttack(event.target.value));
         } else {
          
