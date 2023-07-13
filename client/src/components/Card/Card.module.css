@@ -5,12 +5,11 @@
     max-width: 200px;
     min-width: 200px;
     min-height: 350px;
-    animation: slideInFromLeft 0.5s ease-in-out;
+    animation: slideInFromLeft 0.3s;
 }
 
 .imageCardPokemon{
-    width: 200px;
-   
+ 
     background-color: #f2f2f2;
     border-radius: 5px;
  
@@ -31,13 +30,15 @@ margin: 0px;
 }
 .typesDetailCard{
     display: flex;
-    gap: 10px;
+    gap: 5px;
     font-family: 'Agdasima', sans-serif;
     font-size: large;
 }
 .typesDetailCard p{
-  margin-top: 0;
-   
+  border-radius: 5px;
+  margin-top: 3px;
+   padding: 5px;
+
 }
 .detailCard{
     font-family: 'Agdasima', sans-serif;
@@ -73,9 +74,122 @@ margin: 0px;
     display: flex;
     gap: 3px
 }
+.containerImgPokemon{
+    display: flex;
+    justify-content: center;
+    contain: content;
+    width: 200px;
+    height: 200px;
+}
+.normal {
+  background-color: #a4a4a4;
+  border: none;
+  color: #fff;
+}
+.fighting {
+  background-color: #d56723;
+  border: none;
+  color: #fff;
+}
+.flying {
+  border: none;
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background-color: #3dc7ef;
+  color: #fff;
+}
+.poison {
+  border: none;
+  background-color: #b97fc9;
+  color: #fff;
+}
+.ground {
+  border: none;
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background-color: #f7de3f;
+  color: #fff;
+}
+.rock {
+  border: none;
+  background-color: #a38c21;
+  color: #fff;
+}
+.bug {
+  border: none;
+  background-color: #729f3f;
+  color: #fff;
+}
+.ghost {
+  border: none;
+  background-color: #7b62a3;
+  color: #fff;
+}
+.steel {
+  border: none;
+  background-color: #9eb7b8;
+  color: #fff;
+}
+.fire {
+  border: none;
+  background-color: #fd7d24;
+  color: #fff;
+}
+.water {
+  border: none;
+  background-color: #4592c4;
+  color: #fff;
+}
+.grass {
+  border: none;
+  background-color: #9bcc50;
+  color: #fff;
+}
+.electric {
+  border: none;
+  background-color: #eed535;
+  color: #fff;
+}
+.psychic {
+  border: none;
+  background-color: #f366b9;
+  color: #fff;
+}
+.ice {
+  border: none;
+  background-color: #51c4e7;
+  color: #fff;
+}
+.dragon {
+  border: none;
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background-color: #53a4cf;
+  color: #fff;
+}
+.dark {
+  border: none;
+  background-color: #707070;
+  color: #fff;
+}
+.fairy {
+  border: none;
+  background-color: #fdb9e9;
+  color: #fff;
+}
+.unknown {
+  border: none;
+  background-color: #f2f2f2;
+  border: solid gray;
+}
+.shadow {
+  border: none;
+  background-color: #707070;
+  color: #fff;
+}
+
+
+  
  @keyframes slideInFromLeft {
     0% {
-      transform: translateX(17%);
+      transform: translateX(2007%);
     }
     100% {
       transform: translateX(0);

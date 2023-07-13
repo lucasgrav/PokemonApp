@@ -29,7 +29,7 @@ const Card = ({
     <div key={id} className={style.cardPokemon}>
       {/* IMAGEN CARD */}
       <Link to={`/detail/${id}`}>
-        <div>
+        <div className={style.containerImgPokemon}>
           {imageUrl ? (
             <img
               className={style.imageCardPokemon}
@@ -56,9 +56,9 @@ const Card = ({
           <h2 className={style.nameCardPokemon}>{name.toUpperCase()}</h2>
         </div>
         <div className={style.typesDetailCard}>
-          {isNaN(Number(id)) && <p>Created</p>}
+          {isNaN(Number(id)) && <p className={style.parrafCreated}>Created</p>}
           {types?.map((type) => (
-            <p className={style.typesP}key={type.name}>
+            <p className={style[type.name]}key={type.name}>
               {type.name.replace(/^\w/, (c) => c.toUpperCase())}
             </p>
           ))}

@@ -27,7 +27,7 @@ const DetailPage = () => {
       {!pokemonDetail ? <img className={style.pikachuLoaderDetail}src={imageLoader}/>:(pokemonDetail?.map(
         ({
           name,
-          image,
+          imageUrl,
           life,
           attack,
           defense,
@@ -40,7 +40,7 @@ const DetailPage = () => {
 
             <div className={style.containerImage}>
               {/* IMAGEN DEL POKEMON */}
-              {!image ? <img src={imgDefault} alt={`Image of ${name}`} /> :<img src={image} alt={`Image of ${name}`} />}
+              {!imageUrl ? <img src={imgDefault} alt={`Image of ${name}`} /> :<img src={imageUrl} alt={`Image of ${name}`} />}
               
               {/* TYPES DEL POKEMON */}
               <div className={style.detailTypes}>

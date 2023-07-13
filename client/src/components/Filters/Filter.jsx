@@ -42,7 +42,7 @@ const Filters = ({ resetPageFilter }) => {
         </option>
         {types.map((type) => (
           <option key={type.id} value={type.name}>
-            {type.name}
+            {type.name.replace(/^\w/, (c) => c.toUpperCase())}
           </option>
         ))}
       </select>

@@ -14,9 +14,11 @@ import imgAshAux from "./assets/images/ashPika.png";
 
 const CardsContainer = () => {
   const dispatch = useDispatch();
+  
+  //LOADER DEL INICIO
   const [loader, setLoader] = useState(true);
-  const pokemonAux = useSelector((state) => state.pokemonsAux);
 
+  //CUSTOM HOOK CON LOS ESTADOS Y LOGICA DEL PAGINADO
   const {
     setPokemonsSearch,
     resetPageFilter,
@@ -32,6 +34,7 @@ const CardsContainer = () => {
     pageUlt,
   } = usePagination();
 
+  //CUANDO SE MONTA EL COMPONENTE HAGO DISPATCH Y LLAMO A LOS POKEMONS Y ADEMAS SACO EL LOADER
   useEffect(() => {
     dispatch(getAllPokemons()).then(() => {
       setLoader(false);

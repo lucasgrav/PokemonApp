@@ -2,7 +2,7 @@
 
 .containerNavBar{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: end;
     height: 80px;
     gap: 20px;
@@ -10,7 +10,6 @@
     box-shadow: inset -1px -5px 0px #8D99AE ; 
 
 }
-
 
 .containerNavBar div h2{
    color: #2B2D42 ;
@@ -29,9 +28,6 @@
    justify-content: center;
    border-bottom: solid 5px #EF233C;
    height: 80px;
-   box-shadow: -1px -18px 20px 1px #9d9696;
-
-   transition: background-color 0.5s ease;
  }
  
  .logoPokemon{
@@ -39,11 +35,20 @@
    align-items: center;
    justify-content: center;
    border-bottom: solid 5px ;
-   border-image: linear-gradient(to right, #ffce06, #0c4fca) 1;
+   border-image: linear-gradient(91deg, #ffce06, #0c4fca) 1;
    height: 80px;
-   box-shadow: inset -2px 1px 20px 1px #9d9696;
    width: 200px;
  }
-.CgPokemon{
-   width: 200px;
+ .logoPokemon img{
+  width: 70%;
+ }
+
+.containerLinks{
+   display: flex;
+   gap: 20px;
+}
+.containerAllLinks{
+   display: flex;
+   justify-content: space-between;
+   width: 60vw;
 }

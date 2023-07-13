@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto+Flex:wght@300&display=swap");
 .containerLandingPage {
   height: 100vh;
-  background-image: url("./assets/images/bakckground-landingpage.png");
+  background-color:rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,4 +20,8 @@
   background-color: #edf2f4;
   cursor: pointer;
   color: #2B2D42;
+
+}
+.containerButtonLanding{
+  position: absolute;
 }

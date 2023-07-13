@@ -4,179 +4,166 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import { getAllTypes } from "../../Redux/actions";
 import Card from "../Card/Card";
+import imgDefault from "./assets/image/defaultImage.png"
+
 
 const FormCreator = () => {
-  const dispatch = useDispatch();
-  const {
-    name,
-    rangeLife,
-    rangeAttack,
-    rangeDefense,
-    rangeSpeed,
-    rangeHeight,
-    rangeWeight,
-    error,
-    nameType,
-    imagePokemon,
-    handleName,
-    handleRangeLife,
-    handleRangeAttack,
-    handleRangeDefense,
-    handleRangeSpeed,
-    handleRangeHeight,
-    handleRangeWeight,
-    handleChecked,
-    handleSubmit,
-    handleImage,
-  } = useRangeChange();
+  const dispatch = useDispatch(); //DISPATCH
 
   useEffect(() => {
     dispatch(getAllTypes());
-  }, []);
+  }, []); 
+
+  const {
+    values,
+    error,
+    handleSubmit,
+    handleChangesValues,
+    handleClickButton,
+    resetTypesButtons
+  } = useRangeChange(); //CUSTOM HOOK CON LOS ESTADOS DE LOS INPUTS Y LA LOGICA
 
   const types = useSelector((state) => state.allTypes);
-  const formRef = useRef(null);
-
-  const handleFormSubmit = (event) => {
-    const confirmed = window.confirm("Are you sure of create the pokemon?");
-    if (confirmed) {
-      event.preventDefault();
-      handleSubmit();
-      // Restablece los checkboxes
-      formRef.current.reset();
-    } else {
-      event.preventDefault();
-      window.alert("Ok, don't forget to create your pokemon");
-    }
-  };
-
+ 
   return (
     <div>
       <div className={style.formContainer}>
-        <form className={style.form} onSubmit={handleFormSubmit} ref={formRef}>
+        <form className={style.form} onSubmit={handleSubmit}>
+          {/* CONTAINER DE LOS INPUTS IMAGE Y NAME */}
+          <div className={style.containerNameStats}>
           <div className={style.containerNameImage}>
+            {/* NAME */}
             <div className={style.containerName}>
               <label>Name </label>
               <input
                 className={style.inputName}
                 type="text"
                 name="name"
-                onChange={handleName}
-                value={name}
+                onChange={handleChangesValues}
+                value={values.name}
               />
               <p>{error.name}</p>
             </div>
+            {/* IMAGE */}
             <div className={style.containerImage}>
               <label>Image</label>
               <input
                 type="text"
                 name="image"
-                value={imagePokemon}
-                onChange={handleImage}
+                value={values.imagePokemon}
+                onChange={handleChangesValues}
               />
               <p>{error.image}</p>
             </div>
           </div>
+
+          {/* CONTAINER DE LOS INPUTS RANGES DE LAS STATS */}
           <div className={style.containerRanges}>
             <label className={style.labelStats}>Stats</label>
-            <label>Life: {rangeLife} </label>
+            {/* LIFE */}
+            <label>Life: {values.rangeLife} </label>
             <input
               type="range"
               min="10"
               max="100"
               name="life"
-              onChange={handleRangeLife}
-              value={rangeLife}
+              onChange={handleChangesValues}
+              value={values.life}
             />
-
-            <label>Attack: {rangeAttack}</label>
+            {/* ATTACK */}
+            <label>Attack: {values.rangeAttack}</label>
             <input
               type="range"
               min="5"
               max="100"
               name="attack"
-              onChange={handleRangeAttack}
-              value={rangeAttack}
+              onChange={handleChangesValues}
+              value={values.rangeAttack}
             />
-
-            <label>Defense: {rangeDefense}</label>
+            {/* DEFENSE */}
+            <label>Defense: {values.rangeDefense}</label>
             <input
               type="range"
               min="10"
               max="100"
               name="defense"
-              onChange={handleRangeDefense}
-              value={rangeDefense}
+              onChange={handleChangesValues}
+              value={values.rangeDefense}
             />
-
-            <label>Speed: {rangeSpeed}</label>
+            {/* SPEED */}
+            <label>Speed: {values.rangeSpeed}</label>
             <input
               type="range"
               min="5"
               max="100"
               name="speed"
-              onChange={handleRangeSpeed}
-              value={rangeSpeed}
+              onChange={handleChangesValues}
+              value={values.rangeSpeed}
             />
-
-            <label>Height: {rangeHeight}</label>
+            {/* HEIGHT */}
+            <label>Height: {values.rangeHeight} CM</label>
             <input
               type="range"
               min="50"
               max="200"
               name="height"
-              onChange={handleRangeHeight}
-              value={rangeHeight}
+              onChange={handleChangesValues}
+              value={values.rangeHeight}
             />
-
-            <label>Weight: {rangeWeight}</label>
+            {/* WEIGHT */}
+            <label>Weight: {values.rangeWeight} KG</label>
             <input
               type="range"
               min="20"
               max="1000"
               name="weight"
-              onChange={handleRangeWeight}
-              value={rangeWeight}
+              onChange={handleChangesValues}
+              value={values.rangeWeight}
             />
           </div>
+
+
+
+
+
+          </div>
+         
+
+          {/* CONTAINER DE LOS TYPES y BUTTONS*/}
           <div className={style.containerTypes}>
             <label className={style.labelTypes}>Types {"(Max 3)"}</label>
             <p>{error.types}</p>
-            <div className={style.containerTypesCheck}>
-              {types?.map((type) => (
-                <div key={type.id}>
-                  <label>
-                    {type.name.replace(/^\w/, (c) => c.toUpperCase())}
-                  </label>
-                  <input
-                    id={type.id}
-                    name={type.name}
-                    type="checkbox"
-                    onChange={handleChecked}
-                  />
-                </div>
-              ))}
+            {/* TYPES */}
+            <div className={style.containerTypesCheck}>    
+        {types.map((type) => (
+          <button  onClick={handleClickButton}key={type.id} id={type.id} value={type.name} name={type.name} className={style[type.name]} >
+            {type.name.replace(/^\w/, (c) => c.toUpperCase())}
+          </button>
+        ))}
             </div>
+             {/* BUTTON RESET TYPES */}
+            <button className={style.buttonResetTypes} onClick={resetTypesButtons}>Reset Types</button>
+            {/* BUTTON SUBMIT */}
             <button
               type="submit"
-              disabled={!(error.name === "✅" && error.types === "✅")}
+              disabled={!(error.name === "✅" && error.types === "✅" && error.image === "✅" )}
             >
               Create Pokemon
             </button>
           </div>
         </form>
+        {/* CARD PREVIEW */}
         <div className={style.containerCardForm}>
           <Card
-            imageUrl={imagePokemon}
-            name={!name ? "Name of Pokemon" : name}
+            imageUrl={/\.(jpeg|jpg|png|gif|bmp)$/i.test(values.imagePokemon) ? values.imagePokemon : imgDefault}
+            name={!values.name ? "Name of Pokemon" : values.name}
             id={9999}
-            types={!nameType.length ? [{ name: "Select Types" }] : nameType}
-            attack={!rangeAttack ? 50 : rangeAttack}
-            life={!rangeLife ? 50 : rangeLife}
-            defense={!rangeDefense ? 50 : rangeDefense}
+            types={!values.nameType.length ? [{ name: "Select Types" }] : values.nameType}
+            attack={!values.rangeAttack ? 50 : values.rangeAttack}
+            life={!values.rangeLife ? 50 : values.rangeLife}
+            defense={!values.rangeDefense ? 50 : values.rangeDefense}
           />
         </div>
-       
       </div>
     </div>
   );

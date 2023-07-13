@@ -60,6 +60,7 @@ const usePagination = () => {
     setPage(1);
   };
   const pageUlt = ()=>{
+    //Voy a la ultima pagina
     setNext(12 * totalPages)
     setPrev((12 * totalPages) - 12)
     setPage(totalPages)

@@ -22,7 +22,6 @@ const useFilter = ()=>{
         ) {
          
           setSortValue(event.target.value);
-
           dispatch(ordeForAttack(event.target.value));
         } else {
          

@@ -1,42 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
 .formContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 91.4vh;
- 
+  min-height: 91vh;
 }
 .form {
   display: flex;
-  flex-direction: column;
-  width: 30vw;
   margin: 10px;
   background-color: #f2f2f2;
   padding: 40px;
   border-radius: 20px;
+  border-radius: 100px 0px;
+  border-right: 10px solid #2523233b;
+  border-left: 5px solid #ef5e65;
 }
 .containerTypesCheck {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+
   padding-bottom: 10px;
-  margin-bottom: 20px;
 }
 .containerCardForm {
   display: flex;
   justify-content: center;
   align-items: center;
-background-image: url("../../../assets/images/container_bg.png");
-background-color: #fff;
+  background-image: url("../../../assets/images/container_bg.png");
+  background-color: #fff;
   width: 300px;
   height: 400px;
- border-radius: 20px;
+  border-radius: 20px;
+  border-radius: 0px 50px;
+  border-right: 10px solid #2523233b;
+  border-top: 5px solid #ef5e65;
 }
 .inputName {
   width: 150px;
 }
 .containerRanges {
-  font-family: 'Agdasima', sans-serif;
+  font-family: "Agdasima", sans-serif;
   font-size: large;
   display: flex;
   flex-direction: column;
@@ -46,19 +49,19 @@ background-color: #fff;
 .containerRanges input {
   width: 50%;
 }
-.containerRanges .labelStats{
+.containerRanges .labelStats {
   margin: 0;
   font-size: xx-large;
   margin-bottom: 2px;
 }
 
 .containerNameImage {
-  font-family: 'Agdasima', sans-serif;
+  font-family: "Agdasima", sans-serif;
   display: flex;
   justify-content: center;
   gap: 20px;
 }
-.containerNameImage label{
+.containerNameImage label {
   font-size: xx-large;
 }
 .containerNameImage div {
@@ -66,41 +69,237 @@ background-color: #fff;
   flex-direction: column;
   align-items: center;
 }
-.containerNameImage p{
-  color:rgb(241, 33, 33);
- margin: 5px;
- height: 25px;
- font-weight: 700;
- }
- 
+.containerNameImage p {
+  color: rgb(241, 33, 33);
+  margin: 5px;
+  height: 25px;
+  font-weight: 700;
+  width: 160px;
+  text-align: center;
+}
+.containerNameImage input {
+ border: 2px solid #9b9b9b;
+ border-radius: 5px;
+  height: 20px;
+  font-family:"Agdasima", sans-serif;
+  font-size: x-large;
+  padding: 5px;
+}
+
 .containerTypes {
-  font-family: 'Agdasima', sans-serif;
+  font-family: "Agdasima", sans-serif;
   font-size: large;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .containerTypes button {
-  font-family: 'Agdasima', sans-serif;
+  font-family: "Agdasima", sans-serif;
   font-size: x-large;
 }
 .containerTypes button:hover {
   cursor: pointer;
 }
-.containerTypes .labelTypes{
+.containerTypes .labelTypes {
   font-size: x-large;
 }
-.containerTypes p{
- color:rgb(241, 33, 33);
- margin: 5px;
- height: 25px;
- font-weight: 700;
+.containerTypes p {
+  color: rgb(241, 33, 33);
+  margin: 5px;
+  height: 25px;
+  font-weight: 700;
 }
-.containerName{
+.containerName {
   display: flex;
   flex-direction: column;
 }
-.containerImage{
+.containerImage {
   display: flex;
   flex-direction: column;
+}
+[class^="swal2"] {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: "Agdasima", sans-serif;
+}
+.containerTypesCheck button{
+  border-radius: 5px;
+}
+.buttonResetTypes {
+  margin-bottom: 10px;
+  background-color: #ef233c;
+  color: #edf2f4;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 26px;
+}
+.containerNameStats{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-right: 5px solid #80808042;
+  padding-right: 11px;
+  margin-right: 25px;
+  height: 100%;
+}
+.normal {
+  background-color: #a4a4a4;
+  border: none;
+  color: #fff;
+}
+.fighting {
+  background-color: #d56723;
+  border: none;
+  color: #fff;
+}
+.flying {
+  border: none;
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background-color: #3dc7ef;
+  color: #fff;
+}
+.poison {
+  border: none;
+  background-color: #b97fc9;
+  color: #fff;
+}
+.ground {
+  border: none;
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background-color: #f7de3f;
+  color: #fff;
+}
+.rock {
+  border: none;
+  background-color: #a38c21;
+  color: #fff;
+}
+.bug {
+  border: none;
+  background-color: #729f3f;
+  color: #fff;
+}
+.ghost {
+  border: none;
+  background-color: #7b62a3;
+  color: #fff;
+}
+.steel {
+  border: none;
+  background-color: #9eb7b8;
+  color: #fff;
+}
+.fire {
+  border: none;
+  background-color: #fd7d24;
+  color: #fff;
+}
+.water {
+  border: none;
+  background-color: #4592c4;
+  color: #fff;
+}
+.grass {
+  border: none;
+  background-color: #9bcc50;
+  color: #fff;
+}
+.electric {
+  border: none;
+  background-color: #eed535;
+  color: #fff;
+}
+.psychic {
+  border: none;
+  background-color: #f366b9;
+  color: #fff;
+}
+.ice {
+  border: none;
+  background-color: #51c4e7;
+  color: #fff;
+}
+.dragon {
+  border: none;
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background-color: #53a4cf;
+  color: #fff;
+}
+.dark {
+  border: none;
+  background-color: #707070;
+  color: #fff;
+}
+.fairy {
+  border: none;
+  background-color: #fdb9e9;
+  color: #fff;
+}
+.unknown {
+  border: none;
+  background-color: #f2f2f2;
+  border: solid gray;
+}
+.shadow {
+  border: none;
+  background-color: #707070;
+  color: #fff;
+}
+input[name="life"] {
+  appearance: none;
+  height: 7px;
+  background-color: #4dad5b;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 5px;
+}
+input[name="attack"] {
+  appearance: none;
+  height: 7px;
+  background-color: #d90429;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 5px;
+}
+input[name="defense"] {
+  appearance: none;
+  height: 7px;
+  background-color: #30a7d7;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 5px;
+}
+input[name="speed"] {
+  appearance: none;
+  height: 7px;
+  background-color: #eed535;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 5px;
+}
+input[name="height"] {
+  appearance: none;
+  height: 7px;
+  background-color: #9caeb3;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 5px;
+}
+input[name="weight"] {
+  appearance: none;
+  height: 7px;
+  background-color: #6b6b6b;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  border:solid 1px gray;
+  cursor: pointer;
 }
