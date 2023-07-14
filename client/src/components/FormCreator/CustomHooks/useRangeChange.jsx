@@ -85,28 +85,28 @@ const useRangeChange = () => {
 
     if (event.target.name === "life") {
       setValues({ ...values, rangeLife: event.target.value });
-      setPokemonCreated({ ...pokemonCreated, imageUrl: event.target.value });
+      setPokemonCreated({ ...pokemonCreated, life: event.target.value });
     }
 
     if (event.target.name === "attack") {
       setValues({ ...values, rangeAttack: event.target.value });
-      setPokemonCreated({ ...pokemonCreated, imageUrl: event.target.value });
+      setPokemonCreated({ ...pokemonCreated, attack: event.target.value });
     }
     if (event.target.name === "defense") {
       setValues({ ...values, rangeDefense: event.target.value });
-      setPokemonCreated({ ...pokemonCreated, imageUrl: event.target.value });
+      setPokemonCreated({ ...pokemonCreated, defense: event.target.value });
     }
     if (event.target.name === "speed") {
       setValues({ ...values, rangeSpeed: event.target.value });
-      setPokemonCreated({ ...pokemonCreated, imageUrl: event.target.value });
+      setPokemonCreated({ ...pokemonCreated, speed: event.target.value });
     }
     if (event.target.name === "height") {
       setValues({ ...values, rangeHeight: event.target.value });
-      setPokemonCreated({ ...pokemonCreated, imageUrl: event.target.value });
+      setPokemonCreated({ ...pokemonCreated, height: event.target.value });
     }
     if (event.target.name === "weight") {
       setValues({ ...values, rangeWeight: event.target.value });
-      setPokemonCreated({ ...pokemonCreated, imageUrl: event.target.value });
+      setPokemonCreated({ ...pokemonCreated, weight: event.target.value });
     }
   };
 

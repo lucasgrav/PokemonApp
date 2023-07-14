@@ -3,7 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 91vh;
+  min-height: 91.4vh;
+  background-image: url("./assets/image/background-landing.jpg");
 }
 .form {
   display: flex;

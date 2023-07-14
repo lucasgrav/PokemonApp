@@ -17,8 +17,6 @@ const Card = ({
   setPokemonsSearch,
 }) => {
   const dispatch = useDispatch();
-  
-
   //Esta funcion me sirve para cuando quiera eliminar un pokemon creado cuando lo busco y cuando esta en home
   const functionsFiltersDeleted = () => {
     handleDelete(id, dispatch);

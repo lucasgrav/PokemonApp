@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto+Flex:wght@300&display=swap");
 .containerLandingPage {
   height: 100vh;
-  background-color:rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./assets/images/background-landing.jpg");
 }
 .buttonLandingPage {
   background-color: #ef233c;
@@ -23,5 +23,18 @@
 
 }
 .containerButtonLanding{
-  position: absolute;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+ width: 90vw;
+ height: 90vh;
+ border-radius: 1000px 0px;
+ border-right: 10px solid #ef233c;
+ border-bottom: 10px solid #2B2D42;
+ background-image: url("./assets/images/ashPika.png");
+ background-repeat: no-repeat;
+ background-position-y: bottom;
+ background-attachment: fixed;
+ background-size: 50%;
+ }

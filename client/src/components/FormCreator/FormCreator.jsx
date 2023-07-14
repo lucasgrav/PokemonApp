@@ -22,7 +22,6 @@ const FormCreator = () => {
     handleClickButton,
     resetTypesButtons
   } = useRangeChange(); //CUSTOM HOOK CON LOS ESTADOS DE LOS INPUTS Y LA LOGICA
-
   const types = useSelector((state) => state.allTypes);
  
   return (
@@ -121,14 +120,7 @@ const FormCreator = () => {
               value={values.rangeWeight}
             />
           </div>
-
-
-
-
-
           </div>
-         
-
           {/* CONTAINER DE LOS TYPES y BUTTONS*/}
           <div className={style.containerTypes}>
             <label className={style.labelTypes}>Types {"(Max 3)"}</label>

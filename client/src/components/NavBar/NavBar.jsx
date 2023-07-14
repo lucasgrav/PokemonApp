@@ -16,10 +16,8 @@ const NavBar = () => {
       <div className={style.containerLinks}>
       <Link to="/home">
         <div className={style.linkNav}>
-          
             <h2><BiHomeAlt2/></h2>
             <h2>Home</h2>
-          
         </div>
         </Link>
       <Link to="/pokemonCreator">
@@ -29,11 +27,7 @@ const NavBar = () => {
         </div>
       </Link>
       </div>
-
-
       </div>
-     
-     
     </div>
   );
 };

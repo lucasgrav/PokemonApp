@@ -11,7 +11,7 @@ import {TbLineHeight} from "react-icons/tb"
 import {FaWeightHanging} from "react-icons/fa"
 import {MdCatchingPokemon} from "react-icons/md"
 import imgDefault from "../../components/Card/assets/defaultImage.png"
-import imageLoader from "./assets/images/pikachuLoader.gif"
+import imageLoader from "./assets/images/pokemonLoader.gif"
 
 const DetailPage = () => {
   const { id } = useParams(); // Recibo el id por params, id que se encuentra en la card que contiene un link hacia este path
