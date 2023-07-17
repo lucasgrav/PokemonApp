@@ -9,7 +9,6 @@ import usePagination from "./customHook/usePagination";
 import { Link } from "react-router-dom";
 import loaderGif from "./assets/images/pikachuLoader.gif";
 import loaderGifNotFound from "./assets/images/pokemonLoader.gif";
-import { useSelector } from "react-redux";
 import imgAshAux from "./assets/images/ashPika.png";
 
 const CardsContainer = () => {

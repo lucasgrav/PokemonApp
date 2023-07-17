@@ -13,12 +13,23 @@
   align-items: center;
   width: 300px;
 }
+.containerImage p{
+  font-family: "Agdasima", sans-serif;
+    font-size: x-large;
+    margin: 0;
+    margin-bottom: 2px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 10px 10px 10px 0px;
+}
 .containerImage img {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   border-radius: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .detailPokemon {
   display: flex;

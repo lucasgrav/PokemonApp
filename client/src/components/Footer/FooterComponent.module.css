@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap");
+.containerFooter {
+  background-color: #2b2d42;
+ min-height: 11vh;
+  color: #f2f2f2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+.containerFooter h5 {
+  margin: 0;
+  font-family: "Agdasima", sans-serif;
+  font-size: large;
+}
+.containerFooter a {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+.containerFooter a:hover {
+  color: #857e7e;
+}
+.containerLinksFooter{
+    display: flex;
+    gap: 20px;
+}
+.containerHenry{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.containerHenry img{
+ width: 40px;
+ background-color: #fdff00;
+}
