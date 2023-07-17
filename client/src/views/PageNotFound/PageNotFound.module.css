@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&display=swap');
+
+.containerNotFound{
+    font-family: 'Agdasima', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80.4vh;
+}
+.containerTitleNotFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./assets/image/container_bg.png");
+    background-color: #f2f2f2;
+    border-radius: 100px 0px;
+    width: 50vw;
+    height: 50vh;
+    gap: 200px;
+}
+.containerTitleNotFound img{
+  width: 300px;
+}

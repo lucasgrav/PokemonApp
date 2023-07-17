@@ -12,11 +12,11 @@ import {
 
 const initialState = {
   allPokemons: [],
-  allTypesFilter: [],
   pokemonsAux: [],
   pokemonsCreated: [],
   pokemonsCreatedBoolean: false,
   allTypes: [],
+  allTypesFilter: [],
 
 };
 

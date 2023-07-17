@@ -1,7 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
 const useRangeChange = () => {
+  const pokemonsRepited = useSelector(state => state.pokemonsAux)
+  console.log(pokemonsRepited)
   //ESTADOS PARA CONTROLAR LOS INPUTS
   const [values, setValues] = useState({
     name: "",
@@ -187,7 +190,6 @@ const useRangeChange = () => {
   //SUBMIT PARA POSTEAR EL POKEMON
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const confirmed = await Swal.fire({
       title: "Are you sure you want to create the Pokemon?",
       icon: "question",

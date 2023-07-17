@@ -1,11 +1,14 @@
 const { Pokemon } = require("../db");
-
+const axios = require('axios')
 const postPokemon = async (req, res) => {
   try {
     const { name, life, attack, defense, speed, height, weight, types, imageUrl } = req.body;
     
     const existingPokemon = await Pokemon.findOne({ where: { name: name.toLowerCase() } });
-    if (existingPokemon) {
+    const allPokemonesApi = await axios.get("http://localhost:3001/pokemons");
+    const isAlreadyInExistingPokemons = allPokemonesApi.data.some(pokemon => pokemon.name.toLowerCase() === name.toLowerCase());
+    
+    if (existingPokemon || isAlreadyInExistingPokemons) {
       return res.status(409).json({ error: "Pokemon already exists" });
     }
 

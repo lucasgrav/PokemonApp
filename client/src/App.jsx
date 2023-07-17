@@ -6,6 +6,7 @@ import CreatorOfPokemon from "./views/CreatorOfPokemon/CreatorOfPokemon";
 import DetailPage from "./views/DetailPage/DetailPage";
 import NavBar from "./components/NavBar/NavBar";
 import FooterComponent from "./components/Footer/FooterComponent";
+import PageNotFound from "./views/PageNotFound/PageNotFound";
 function App() {
   const location = useLocation();
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/pokemonCreator" element={<CreatorOfPokemon />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       {location.pathname !== "/" && <FooterComponent />}
     </div>
