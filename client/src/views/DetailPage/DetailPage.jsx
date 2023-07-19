@@ -43,7 +43,7 @@ const DetailPage = () => {
               {/* IMAGEN DEL POKEMON */}
               <p>N° {id}</p>
               {!imageUrl ? <img src={imgDefault} alt={`Image of ${name}`} /> :<img src={imageUrl} alt={`Image of ${name}`} />}
-              
+
               {/* TYPES DEL POKEMON */}
               <div className={style.detailTypes}>
               <h2 className={style.nameDetail}>{name.toUpperCase()}</h2>

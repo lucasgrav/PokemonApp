@@ -7,7 +7,9 @@ const getPokemonForId = async (req, res) => {
     let pokemon;
     const uuidRegex =
       /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
     const isUUID = uuidRegex.test(idPokemon); //me fijo si es un id UUID como que tienen los pokemon creados
+    
     try {
       const { data } = await axios(
         `https://pokeapi.co/api/v2/pokemon/${idPokemon}` // Peticion a la api de pokemon

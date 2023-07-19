@@ -4,7 +4,8 @@ const { Pokemon, Type } = require("../db");
 const getAllPokemons = async (req, res) => {
   try {
     const { data } = await axios(`https://pokeapi.co/api/v2/pokemon?limit=50`); //la ruta de la api me muestra solamente el nombre y una url
-    const pokemonPromises = data.results.map(async (obj) => {
+
+    const pokemonPromises = data.results.map(async (obj) => {  //recorro el array results de la api, que contiene el name y la url
       const { data } = await axios(obj.url);
       return {
         id: data.id,
@@ -22,9 +23,9 @@ const getAllPokemons = async (req, res) => {
       };
     });
 
-    const pokemonData = await Promise.all(pokemonPromises);
+    const pokemonData = await Promise.all(pokemonPromises); // ejecuto todas las promesas para que no esperece una por una y sea mas rapido
 
-    const pokemonsCreated = await Pokemon.findAll({
+    const pokemonsCreated = await Pokemon.findAll({  // busco a todos los pokemones de la base de datos
       include: {
         model: Type,
         attributes: ["name"],
@@ -34,7 +35,7 @@ const getAllPokemons = async (req, res) => {
       },
     });
 
-    const allPokemons = [...pokemonsCreated, ...pokemonData];
+    const allPokemons = [...pokemonsCreated, ...pokemonData]; //los concateno y los envio 
     res.status(200).json(allPokemons);
   } catch (error) {
     res.status(404).json({ error: error.message });

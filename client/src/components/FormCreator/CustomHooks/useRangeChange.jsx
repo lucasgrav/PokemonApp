@@ -1,10 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useSelector } from "react-redux";
 const useRangeChange = () => {
-  const pokemonsRepited = useSelector(state => state.pokemonsAux)
-  console.log(pokemonsRepited)
   //ESTADOS PARA CONTROLAR LOS INPUTS
   const [values, setValues] = useState({
     name: "",
