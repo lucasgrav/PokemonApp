@@ -51,7 +51,7 @@ const Card = ({
               X
             </button>
           )}{" "}
-          <h2 className={style.nameCardPokemon}>{name.toUpperCase()}</h2>
+          <h2 className={style.nameCardPokemon}>{name?.toUpperCase()}</h2>
         </div>
         <div className={style.typesDetailCard}>
           {isNaN(Number(id)) && <p className={style.parrafCreated}>Created</p>}
