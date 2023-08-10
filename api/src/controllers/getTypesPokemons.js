@@ -16,7 +16,7 @@ const getTypesPokemons = async (req, res) => {
 
     res.status(200).json(allTypes); //lo envio al cliente
   } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
+    res.status(404).json({ error: error.message });
   }
 };
 
