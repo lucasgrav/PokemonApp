@@ -30,6 +30,8 @@ usuarios crear sus propios Pokemons según sus preferencias.
   <a href="https://www.linkedin.com/in/lucasgastoncorrea/" target="_blank" >
        <img src="https://skillicons.dev/icons?i=linkedin" />
      </a>
-
+ <a href="https://github.com/lucasgrav" target="_blank" >
+       <img src="https://skillicons.dev/icons?i=github" />
+     </a>
 </div>
 
