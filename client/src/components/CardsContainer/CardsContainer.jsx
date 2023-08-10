@@ -13,7 +13,7 @@ import imgAshAux from "./assets/images/ashPika.png";
 
 const CardsContainer = () => {
   const dispatch = useDispatch();
-  
+
   //LOADER DEL INICIO
   const [loader, setLoader] = useState(true);
 
@@ -65,7 +65,16 @@ const CardsContainer = () => {
               {page} ... {totalPages}
             </h3>
           ) : (
-            <h3>Pokemons not found</h3>
+            <div className={style.dotSpinner}>
+              <div className={style.dotSpinnerDot}></div>
+              <div className={style.dotSpinnerDot}></div>
+              <div className={style.dotSpinnerDot}></div>
+              <div className={style.dotSpinnerDot}></div>
+              <div className={style.dotSpinnerDot}></div>
+              <div className={style.dotSpinnerDot}></div>
+              <div className={style.dotSpinnerDot}></div>
+              <div className={style.dotSpinnerDot}></div>
+            </div>
           )}
           <button onClick={handleNext}>{">>"}</button>
           <button onClick={pageUlt}>{">"}</button>
@@ -139,7 +148,16 @@ const CardsContainer = () => {
               {page} ... {totalPages}
             </h3>
           ) : (
-            <h3>Pokemons not found</h3>
+            <div className={style.dotSpinner}>
+            <div className={style.dotSpinnerDot}></div>
+            <div className={style.dotSpinnerDot}></div>
+            <div className={style.dotSpinnerDot}></div>
+            <div className={style.dotSpinnerDot}></div>
+            <div className={style.dotSpinnerDot}></div>
+            <div className={style.dotSpinnerDot}></div>
+            <div className={style.dotSpinnerDot}></div>
+            <div className={style.dotSpinnerDot}></div>
+          </div>
           )}
           <button onClick={handleNext}>{">>"}</button>
           <button onClick={pageUlt}>{">"}</button>
