@@ -199,7 +199,7 @@ const useRangeChange = () => {
 
     if (confirmed.isConfirmed) {
       try {
-        await axios.post("http://localhost:3001/pokemons/post", pokemonCreated);
+        await axios.post("https://pokemon-api-henry.onrender.com/pokemons/post", pokemonCreated);
         Swal.fire({
           title: "Success!",
           text: "Pokemon created successfully!",

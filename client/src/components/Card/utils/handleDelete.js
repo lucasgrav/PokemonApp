@@ -18,7 +18,7 @@ export const handleDelete = async (id, dispatch) => {
     if (result.isConfirmed) {
       dispatch(filterDeleted(id));
       const { data } = await axios.delete(
-        `http://localhost:3001/pokemons/deletePokemon/${id}`
+        `https://pokemon-api-henry.onrender.com/pokemons/deletePokemon/${id}`
       );
       console.log(data);
 

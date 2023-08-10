@@ -14,7 +14,7 @@ import axios from "axios";
 export const getAllPokemons = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("http://localhost:3001/pokemons");
+      const { data } = await axios.get("https://pokemon-api-henry.onrender.com/pokemons");
       dispatch({ type: ALL_POKEMONS, payload: data });
     } catch (error) {
       console.error(error);
@@ -26,7 +26,7 @@ export const getAllTypesFilter = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:3001/pokemons/types"
+        "https://pokemon-api-henry.onrender.com/pokemons/types"
       );
       dispatch({ type: ALL_TYPES_FILTER, payload: data });
     } catch (error) {
@@ -38,7 +38,7 @@ export const getAllTypes = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:3001/pokemons/types"
+        "https://pokemon-api-henry.onrender.com/pokemons/types"
       );
       dispatch({ type: ALL_TYPES, payload: data });
     } catch (error) {

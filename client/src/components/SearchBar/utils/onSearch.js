@@ -11,7 +11,7 @@ export async function onSearch(
       setLoader(true);
       setErrorSearch(``);
       const response = await axios(
-        `http://localhost:3001/pokemons/name/?name=${name.toLowerCase()}`
+        `https://pokemon-api-henry.onrender.com/pokemons/name/?name=${name.toLowerCase()}`
       );
       if (response) {
         setLoader(false);

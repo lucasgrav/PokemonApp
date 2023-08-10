@@ -6,7 +6,7 @@ const postPokemon = async (req, res) => {
     
    
     const existingPokemon = await Pokemon.findOne({ where: { name: name.toLowerCase() } });
-    const allPokemonesApi = await axios.get("http://localhost:3001/pokemons");
+    const allPokemonesApi = await axios.get("https://pokemon-api-henry.onrender.com/pokemons");
     const isAlreadyInExistingPokemons = allPokemonesApi.data.some(pokemon => pokemon.name.toLowerCase() === name.toLowerCase());
     
     if (existingPokemon || isAlreadyInExistingPokemons) {
