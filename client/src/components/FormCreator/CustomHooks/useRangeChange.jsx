@@ -149,7 +149,7 @@ const useRangeChange = () => {
     event.preventDefault();
     setError({ ...error, types: "Select types of the pokemon" });
     setValues({ ...values, nameType: [], typesButtons: 0 });
-    setPokemonCreated({...pokemonCreated, types: []})
+    setPokemonCreated({ ...pokemonCreated, types: [] });
   };
 
   //RESETEAR TODOS LOS INPUTS
@@ -199,18 +199,22 @@ const useRangeChange = () => {
 
     if (confirmed.isConfirmed) {
       try {
-       const data = await axios.post("https://pokemon-api-henry.onrender.com/pokemons/post", pokemonCreated);
-
-       if(!data){
         Swal.fire({
           title: "Loading...",
           text: "Creating pokemon...",
           icon: "info",
           showConfirmButton: false,
-          allowOutsideClick: false
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          },
         });
-        
-       }
+
+        await axios.post(
+          "https://pokemon-api-henry.onrender.com/pokemons/post",
+          pokemonCreated
+        );
+
         Swal.fire({
           title: "Success!",
           text: "Pokemon created successfully!",
