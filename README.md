@@ -1,18 +1,12 @@
 <h1 align="center">🚀 Proyecto indidual para el bootcamp Henry 🚀</h1> 
 <h2 align="center">Pokemon</h2>
-<h3 align="center" >
-  👨‍💻
-<a href="https://pokemon-app-ten-iota.vercel.app/" target="_blank">
- >>> DEPLOY <<<
-</a>
-   👨‍💻
-</h3>
+
 
 
 <div align="center">
-  <a href="https://pokemon-app-ten-iota.vercel.app/" target="_blank">
+ 
   <img  src="https://media.tenor.com/zBu-HZC4bQQAAAAC/pikachu-pokemon.gif" width=300px/>
-  </a>
+ 
 </div>
 
 <hr/>
